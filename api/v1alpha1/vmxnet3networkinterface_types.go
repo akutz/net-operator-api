@@ -23,6 +23,7 @@ type VMXNET3NetworkInterfaceStatus struct {
 
 // +genclient
 // +kubebuilder:object:root=true
+// +kubebuilder:deprecatedversion:warning=Use v1alpha2/NetworkInterface
 
 // VMXNET3NetworkInterface is the Schema for the vmxnet3networkinterfaces API.
 // It represents configuration of a vSphere VMXNET3 type  network interface card.

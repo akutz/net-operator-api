@@ -36,28 +36,27 @@ help: ## Display this help
 .PHONY: $(CONTROLLER_GEN)
 controller-gen: $(CONTROLLER_GEN) ## Install controller-gen
 $(CONTROLLER_GEN): go.mod
-	go build -tags=tools -o $@ sigs.k8s.io/controller-tools/cmd/controller-gen
+	go build -tags=netop_tools -o $@ sigs.k8s.io/controller-tools/cmd/controller-gen
 
 .PHONY: $(CLIENT_GEN)
 client-gen: $(CLIENT_GEN) ## Install client-gen
 $(CLIENT_GEN): go.mod
-	go build -tags=tools -o $@ k8s.io/code-generator/cmd/client-gen
+	go build -tags=netop_tools -o $@ k8s.io/code-generator/cmd/client-gen
 
 .PHONY: $(INFORMER_GEN)
 informer-gen: $(INFORMER_GEN) ## Install informer-gen
 $(INFORMER_GEN): go.mod
-	go build -tags=tools -o $@ k8s.io/code-generator/cmd/informer-gen
+	go build -tags=netop_tools -o $@ k8s.io/code-generator/cmd/informer-gen
 
 .PHONY: $(LISTER_GEN)
 lister-gen: $(LISTER_GEN) ## Install lister-gen
 $(LISTER_GEN): go.mod
-	go build -tags=tools -o $@ k8s.io/code-generator/cmd/lister-gen
+	go build -tags=netop_tools -o $@ k8s.io/code-generator/cmd/lister-gen
 
 .PHONY: $(GOLANGCI_LINT)
 golangci-lint: $(GOLANGCI_LINT) ## Install golangci-lint
 $(GOLANGCI_LINT):
-	[ -f $(BIN_DIR)/golangci-lint ] || curl -sfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh| sh -s -- -b $(BIN_DIR) v1.21.0
-#	go build -tags=tools -o $@ github.com/golangci/golangci-lint/cmd/golangci-lint
+	go build -tags=netop_tools -o $(@) github.com/golangci/golangci-lint/cmd/golangci-lint
 
 ## --------------------------------------
 ##@ Generate

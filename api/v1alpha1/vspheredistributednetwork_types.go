@@ -84,6 +84,7 @@ type VSphereDistributedNetworkStatus struct {
 // +genclient:nonNamespaced
 // +kubebuilder:object:root=true
 // +kubebuilder:resource:scope=Cluster
+// +kubebuilder:deprecatedversion:warning=Use v1alpha2/Network
 
 // VSphereDistributedNetwork represents schema for a network backed by a vSphere Distributed PortGroup on vSphere
 // Distributed switch.
